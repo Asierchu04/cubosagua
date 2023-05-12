@@ -63,6 +63,7 @@ class juegoCubos:
         print('  (L)lenar un cubo')
         print('  (V)aciar un cubo')
         print('  (M)over el agua de un cubo a otro')
+        print('  (B)uidar todos los cubos')
         print('  (R)ellenar los cubos de agua')
         print('  (S)alir')
 
@@ -110,6 +111,11 @@ class juegoCubos:
             self.aguaEnCubos[cubo]=int(cubo)
             self.pasos+=1
 
+    def buidartots(self):
+        for cubo in self.aguaEnCubos:
+            self.aguaEnCubos[cubo] = 0
+        self.pasos += 1
+
     def jugar(self):
         self.mostrarEstadoCubos()
         while True:
@@ -126,6 +132,8 @@ class juegoCubos:
                 self.moverCubo(cuboOrigen, cuboDestino)
             elif opcion == "R":
                 self.rellenarcubos()
+            elif opcion == "B":
+                self.buidartots()
             self.mostrarEstadoCubos()
             self.checkObjetivo()
 
